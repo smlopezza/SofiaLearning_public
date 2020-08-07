@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+
+{% block app_content %}
+
+<!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5" style='font-size: 30px; text-align: right;'>
+            Using our Chatbot, we help parents, educator and people with Down Syndrome to solve their questions, get resources and support. Our objective is to improve life quality and increase awareness about Down Syndrome. </h1>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+
+  <section class="showcase" style="padding: 50px;">
+
+    <h2 class="mb-5" style='text-align: center;'> How we can help </h2>
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{ url_for('static', filename='images/card1.jpg') }}" alt="Woman in a supermarket" height="200">
+          <div class="card-body">
+            <h4 class="card-title">For Parents</h4>
+            <p class="card-text">We are a community of parents that support children and youth with Down Syndrome. We work together to improve life quality and access to information of our loved ones.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{ url_for('static', filename='images/card2.jpg') }}" alt="Grocery store" height="200">
+          <div class="card-body">
+            <h4 class="card-title">For Educators</h4>
+            <p class="card-text">Teaching children and tenagers with special needs requires to be constatly updated. We support you by offering up-to-date resources to facilitate your work. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{ url_for('static', filename='images/card3.jpg') }}" alt="Toronto view from the island" height="200">
+          <div class="card-body">
+            <h4 class="card-title">For Children</h4>
+            <p class="card-text">We provide interactive materials and activities to help your learning.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+
+
+  <section class="showcase" style="padding: 50px;">
+
+    <h2 class="mb-5" style='text-align: center;'> Do you have questions about Down Syndrome? </h2>
+    <div class="row">
+      <div class="col-md-3 mb-5">
+      </div>
+
+      <div class="col-md-6 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{ url_for('static', filename='images/card4.jpg') }}" alt="Hands using a tablet" height="300" >
+          <div class="card-body">
+            <h4 class="card-title">Try our Chatbot! </h4>
+            <div id="webchat" role="main">
+            </div>
+            <p class="card-text"> We provide answers in a friendly and caring way! </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-5">
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+{% endblock %}

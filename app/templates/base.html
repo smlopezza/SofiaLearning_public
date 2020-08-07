@@ -1,0 +1,140 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    Sofia Learning
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"></link>
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/landing-page.min.css') }}" rel="stylesheet"></link>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" ></link>
+{% endblock %}
+
+{% block scripts%}
+  {{ super() }}
+    <script src="https://kit.fontawesome.com/901d617fca.js" crossorigin="anonymous"> </script>
+
+    <script crossorigin="anonymous" src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+{% endblock %}
+
+
+{% block body %}
+  {{ super() }}
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"> Sofia Learning   </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+    <span class="navbar-toggler-icon">   </span>
+  </button >
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item active" >
+        <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only"> (current) </span>  </a>
+      </li >
+    </ul >
+  </div >
+</nav >
+
+
+
+    <!-- Page Wrapper -->
+    <div id="wrapper" style='height: 100%; margin-top: 56px;'>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      {# application content needs to be provided in the app_content block #}
+      {% block app_content %}
+        {{ super() }}
+
+
+      {% endblock %}
+      <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="footer bg-light">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                  <li class="list-inline-item">
+                    <a class='link2' href="#">About</a>
+                  </li>
+                  <li class="list-inline-item">&sdot;</li>
+                  <li class="list-inline-item">
+                    <a class='link2' href="#">Contact</a>
+                  </li>
+                  <li class="list-inline-item">&sdot;</li>
+                  <li class="list-inline-item">
+                    <a class='link2' href="#">Terms of Use</a>
+                  </li>
+                  <li class="list-inline-item">&sdot;</li>
+                  <li class="list-inline-item">
+                    <a class='link2' href="#">Privacy Policy</a>
+                  </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Sofia Learning 2020. All Rights Reserved.</p>
+              </div>
+              <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item mr-3">
+                    <a class='link2' href="#">
+                      <i class="fab fa-facebook fa-2x fa-fw"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item mr-3">
+                    <a class='link2' href="#">
+                      <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class='link2' href="#">
+                      <i class="fab fa-instagram fa-2x fa-fw"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <script>
+      (async function() {
+        // In this demo, we are using Direct Line token from MockBot.
+        // Your client code must provide either a secret or a token to talk to your bot.
+        // Tokens are more secure. To learn about the differences between secrets and tokens
+        // and to understand the risks associated with using secrets, visit https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-authentication?view=azure-bot-service-4.0
+
+        // Pass a Web Speech ponyfill factory to renderWebChat.
+        // You can also use your own speech engine given it is complaint to W3C Web Speech API: https://w3c.github.io/speech-api/.
+        // For implementor, look at createBrowserWebSpeechPonyfill.js for details.
+        window.WebChat.renderWebChat(
+          {
+            directLine: window.WebChat.createDirectLine({ secret: '<your secret key>' }),
+            webSpeechPonyfillFactory: window.WebChat.createBrowserWebSpeechPonyfillFactory()
+          },
+          document.getElementById('webchat')
+        );
+
+        document.querySelector('#webchat > *').focus();
+      })().catch(err => console.error(err));
+    </script>
+
+{% endblock %}
